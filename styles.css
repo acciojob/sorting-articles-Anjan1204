@@ -1,45 +1,39 @@
-html {
-  box-sizing: border-box;
-  background: url('https://unsplash.it/1500/1000?image=881') no-repeat center center fixed;
-  background-size: cover;
-}
-
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-
 body {
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f4f4f4;
+  padding: 40px;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   min-height: 100vh;
-  background-color: rgba(255, 255, 255, 0.7);
 }
 
-.bands-container {
+.container {
   background: white;
-  width: 400px;
-  margin: 5vh auto;
-  padding: 20px 40px;
+  padding: 30px 50px;
   border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-ul.bands {
-  list-style: none;
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+ul#band {
+  list-style-type: none;
   padding: 0;
   margin: 0;
 }
 
-.bands li {
-  padding: 10px 0;
-  border-bottom: 1px solid #eee;
+ul#band li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
   font-size: 18px;
+  color: #555;
 }
 
-.bands li:last-child {
+ul#band li:last-child {
   border-bottom: none;
 }
