@@ -5,22 +5,16 @@ const bands = [
   'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'
 ];
 
-// Helper function to strip 'a', 'an', 'the'
-function stripArticle(bandName) {
-  return bandName.replace(/^(a |an |the )/i, '').trim();
+// Strip 'a', 'an', 'the' for sorting
+function stripArticle(band) {
+  return band.replace(/^(a |an |the )/i, '').trim();
 }
 
-// Sort ignoring articles
+// Sort the bands
 const sortedBands = bands.sort((a, b) => {
-  const bandA = stripArticle(a);
-  const bandB = stripArticle(b);
-  return bandA.localeCompare(bandB);
+  return stripArticle(a).localeCompare(stripArticle(b));
 });
 
-// Render to UL
-const ul = document.getElementById('band');
-sortedBands.forEach(band => {
-  const li = document.createElement('li');
-  li.textContent = band;
-  ul.appendChild(li);
-});
+// Add to DOM
+const ul = document.getElementById("band");
+ul.innerHTML = sortedBands.map(band => `<li>${band}</li>`).join('');
