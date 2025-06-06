@@ -14,13 +14,22 @@ const bands = [
   'An Old Dog'
 ];
 
-// Function to ignore articles for sorting
+// Function to remove "a", "an", "the" from beginning for sorting
 function stripArticle(name) {
   return name.replace(/^(a |an |the )/i, '').trim();
 }
 
-// Sort and display
-const sortedBands = bands.slice().sort((a, b) => stripArticle(a).localeCompare(stripArticle(b)));
+// Sort the band list ignoring articles
+const sortedBands = bands.sort((a, b) => {
+  const nameA = stripArticle(a).toLowerCase();
+  const nameB = stripArticle(b).toLowerCase();
+  return nameA.localeCompare(nameB);
+});
 
+// Insert sorted list into DOM
 const ul = document.getElementById('band');
-ul.innerHTML = sortedBands.map(band => `<li>${band}</li>`).join('');
+sortedBands.forEach(band => {
+  const li = document.createElement('li');
+  li.textContent = band;
+  ul.appendChild(li);
+});
