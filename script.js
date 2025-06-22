@@ -14,22 +14,22 @@ const bands = [
   'An Old Dog'
 ];
 
-// Helper function to strip 'a', 'an', 'the' from beginning
-function stripArticle(bandName) {
-  return bandName.replace(/^(a |an |the )/i, '').trim();
+// Function to remove leading articles: a, an, the
+function stripArticle(name) {
+  return name.replace(/^(a |an |the )/i, '').trim();
 }
 
-// Sort bands ignoring 'a', 'an', 'the'
+// Sort bands ignoring articles
 const sortedBands = bands.sort((a, b) => {
   const nameA = stripArticle(a).toLowerCase();
   const nameB = stripArticle(b).toLowerCase();
   return nameA.localeCompare(nameB);
 });
 
-// Display sorted list in <ul id="band">
-const ul = document.getElementById('band');
+// Render sorted list
+const bandList = document.getElementById('band');
 sortedBands.forEach(band => {
   const li = document.createElement('li');
   li.textContent = band;
-  ul.appendChild(li);
+  bandList.appendChild(li);
 });
